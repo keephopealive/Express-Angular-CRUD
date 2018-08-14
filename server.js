@@ -88,6 +88,7 @@ app.get('/tasks', function (req, res) {
     console.log("app.get('/tasks', function (req, res) { ... })");
     Task.find({}, function(err, tasks){
         res.json(tasks);
+        // res.json({tasks:tasks, message:'tasks returned'});
     })
 })
 
@@ -142,7 +143,7 @@ app.put('/tasks/:id', function(req, res){
 
 app.delete("/tasks/:id", function(req, res){
     console.log("app.get('/tasks/:id/delete', function(req, res){ req.params.id });", req.params.id);
-    Note.findOneAndDelete({_id: req.params.id}, function(result) {
+    Task.findOneAndDelete({_id: req.params.id}, function(result) {
         console.log("Note.findOneAndDelete({_id: req.params.id}, function(result) { result })", result)
         res.json(result);
     })
