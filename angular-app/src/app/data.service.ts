@@ -5,24 +5,16 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root'
 })
 export class DataService {
-    datastuff;
 
-    constructor(private http: HttpClient) {
-        console.log('Data Service (data.serice.ts) is running...');
-        // this.getTasks();
-        // this.getOneTask( 'hg398jg082j90jg902jg0' );
-        // this.deleteTask( 'hg398jg082j90jg902jg0' );
-        // this.createTask( {title: 'test', name: 'hi'} );
-        // this.updateTask( 'u42h9th92ht890240', {title: 'test', name: 'hi'} );        
+    constructor(private http: HttpClient) { }
+
+    getTasks() { // (#5 - the call to the service)
+        return this.http.get('/tasks'); // (#6 - the HTTP request and the Observable returned to the component)
     }
 
-    getTasks() { // 5
-        return this.http.get('/tasks'); // 6
-    }
-
-    getOneTask(id) { // A5
-        console.log('SERVICE : getOneTask invoked'); // A6
-        return this.http.get('/tasks/' + id); // A7
+    getOneTask(id) {
+        console.log('SERVICE : getOneTask invoked');
+        return this.http.get('/tasks/' + id);
     }
 
     deleteTask(id) {

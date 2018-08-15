@@ -84,11 +84,10 @@ app.use(express.static(path.join(__dirname, "angular-app/dist/angular-app")));
 
 // ============ Routes ============ 
 // Will use: mongoose
-app.get('/tasks', function (req, res) {
+app.get('/tasks', function (req, res) { // (#7 - Server's route hit by our HTTP request from the client)
     console.log("app.get('/tasks', function (req, res) { ... })");
-    Task.find({}, function(err, tasks){
-        res.json(tasks);
-        // res.json({tasks:tasks, message:'tasks returned'});
+    Task.find({}, function(err, tasks){ // (#8 - Find all tasks)
+        res.json(tasks); // (#9 - Respond to the client with the array of tasks)
     })
 })
 
@@ -156,3 +155,4 @@ app.delete("/tasks/:id", function(req, res){
 // Will require: express/app 
 app.listen(8000);
 // ================================
+
