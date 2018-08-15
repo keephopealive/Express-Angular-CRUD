@@ -1,7 +1,11 @@
-{{ tasks | json }}
+<hr/>
+<button (click)="getTask()">(A1) Get Task</button>
+<!-- {{ task | json }}  // (A13) -->
+<hr/>
+<button (click)="getTasks()">Get Tasks (#2)</button>
+<!-- {{ tasks | json }} (# 13) -->
 
-<button (click)="getTasks()">Get Tasks</button>
-
-
-<button (click)="getTask()">Get Task</button>
-{{ task | json }}
+<!-- <p *ngFor="let task of tasks">
+    {{ task.title }} - {{ task.description }}
+    <button (click)="getTask()">Show</button>
+</p> -->
